@@ -18,7 +18,6 @@ addons:
     - ant
 
 before_install:
-  - sudo apt-get update > /dev/null
   - mysql -e "create database IF NOT EXISTS shopware;" -uroot
 
 install:

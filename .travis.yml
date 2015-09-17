@@ -15,7 +15,7 @@ before_install:
   - mysql -e "create database IF NOT EXISTS shopware;" -uroot -proot
 
 install:
-  #ant Build system
+  # ant Build system
   - sudo apt-get -y install default-jdk
   - sudo apt-get -y install ant
 

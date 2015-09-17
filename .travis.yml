@@ -21,9 +21,10 @@ install:
 
   # Get Shopware
   - git clone https://github.com/shopware/shopware.git ./shopware
-  - cd ./shopware/build
   - sudo cp ./travis/build.properties ./shopware/build/
+  - cd ./shopware/build
   - ant build-unit
+  - cd ./../..
   - sudo cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
   # demo data
   # - sudo wget --quiet -O ./test_images.zip http://releases.s3.shopware.com/test_images.zip

@@ -1,5 +1,6 @@
 service_name: travis-ci
 
-src_dir: ./
+src_dir: shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/
+
 coverage_clover: build/logs/clover.xml
 json_path: build/logs/coveralls-upload.json

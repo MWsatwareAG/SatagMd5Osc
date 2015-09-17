@@ -41,4 +41,5 @@ before_script:
 
 script: phpunit --coverage-clover build/logs/clover.xml
 
-after_script: php ./../../../../../../vendor/bin/coveralls -v
+after_script: php ./../../../../../../vendor/bin/coveralls -v -c=./../../../../../../.coveralls.yml
+

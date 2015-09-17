@@ -33,6 +33,7 @@ install:
   - cd ./../..
   - cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
   # add coveralls support
+  - cd ./shopware
   - composer require --dev "satooshi/php-coveralls:dev-master"
 
 before_script:

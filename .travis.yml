@@ -41,5 +41,7 @@ before_script:
 
 script: phpunit --coverage-clover build/logs/clover.xml
 
-after_script: php ./../../../../../../vendor/bin/coveralls
+after_script:
+  - pwd
+  - php ./../../../../../../vendor/bin/coveralls
 

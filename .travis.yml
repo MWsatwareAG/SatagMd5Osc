@@ -28,8 +28,12 @@ install:
   - ant build-unit
   - cd ./../..
   - cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
+  # add coveralls support
+  - php composer.phar require --dev "satooshi/php-coveralls:dev-master"
 
 before_script:
-  - cd ./shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc
+  - cd ./engine/Shopware/Plugins/Community/Core/SatagMd5Osc
 
-script: phpunit
+script: phpunit --coverage-clover build/logs/clover.xml
+
+after_script: php ./../../../../../../vendor/bin/coveralls -v

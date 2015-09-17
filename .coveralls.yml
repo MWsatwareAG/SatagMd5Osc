@@ -1,6 +1,6 @@
 service_name: travis-ci
 
-src_dir: ./shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/
+src_dir: shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/
 
-coverage_clover: ./shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/build/logs/clover.xml
-json_path: ./shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/build/logs/coveralls-upload.json
+coverage_clover: shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/build/logs/clover.xml
+json_path: shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc/build/logs/coveralls-upload.json

@@ -1,3 +1,5 @@
+sudo: false
+
 language: php
 
 php:
@@ -9,29 +11,24 @@ matrix:
   allow_failures:
     - php: hhvm
 
+addons:
+  apt:
+    packages:
+    - default-jdk
+    - ant
 
 before_install:
   - sudo apt-get update > /dev/null
   - mysql -e "create database IF NOT EXISTS shopware;" -uroot
 
 install:
-  # ant Build system
-  - sudo apt-get -y install default-jdk
-  - sudo apt-get -y install ant
-
   # Get Shopware
   - git clone https://github.com/shopware/shopware.git ./shopware
-  - sudo cp ./travis/build.properties ./shopware/build/
+  - cp ./travis/build.properties ./shopware/build/
   - cd ./shopware/build
   - ant build-unit
   - cd ./../..
-  - sudo cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
-  # demo data
-  # - sudo wget --quiet -O ./test_images.zip http://releases.s3.shopware.com/test_images.zip
-  # - sudo unzip -q ./test_images.zip -d ./
-  # - sudo rm ./test_images.zip
-
-  # sudo cp /vagrant/user.ini /etc/php5/apache2/conf.d/user.ini
+  - cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
 
 before_script:
   - cd ./shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc

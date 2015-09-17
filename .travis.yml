@@ -1,0 +1,40 @@
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - hhvm
+
+matrix:
+  allow_failures:
+    - php: hhvm
+
+mysql:
+  database: shopware
+  username: root
+  password: root
+  encoding: utf8
+
+before_install:
+  - sudo apt-get update > /dev/null
+  - mysql -e "create database IF NOT EXISTS shopware;" -uroot -proot
+
+install:
+  #ant Build system
+  - sudo apt-get -y install default-jdk
+  - sudo apt-get -y install ant
+
+  # Get Shopware
+  - git clone https://github.com/shopware/shopware.git ./
+  - cd ./build/
+  - sudo cp ./travis/build.properties ./build/
+  - ant build-unit
+  - sudo cp -r ./Core ./engine/Shopware/Plugins/Community
+  # demo data
+  # - sudo wget --quiet -O ./test_images.zip http://releases.s3.shopware.com/test_images.zip
+  # - sudo unzip -q ./test_images.zip -d ./
+  # - sudo rm ./test_images.zip
+
+  # sudo cp /vagrant/user.ini /etc/php5/apache2/conf.d/user.ini
+
+script: cd ./engine/Shopware/Plugins/Community/Core/SatagMd5Osc/; phpunit

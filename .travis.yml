@@ -20,11 +20,11 @@ install:
   - sudo apt-get -y install ant
 
   # Get Shopware
-  - git clone https://github.com/shopware/shopware.git ./
-  - cd ./build/
-  - sudo cp ./travis/build.properties ./build/
+  - git clone https://github.com/shopware/shopware.git ./shopware
+  - cd ./shopware/build
+  - sudo cp ./travis/build.properties ./shopware/build/
   - ant build-unit
-  - sudo cp -r ./Core ./engine/Shopware/Plugins/Community
+  - sudo cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
   # demo data
   # - sudo wget --quiet -O ./test_images.zip http://releases.s3.shopware.com/test_images.zip
   # - sudo unzip -q ./test_images.zip -d ./
@@ -33,6 +33,6 @@ install:
   # sudo cp /vagrant/user.ini /etc/php5/apache2/conf.d/user.ini
 
 before_script:
-  - cd ./engine/Shopware/Plugins/Community/Core/SatagMd5Osc
+  - cd ./shopware/engine/Shopware/Plugins/Community/Core/SatagMd5Osc
 
 script: phpunit

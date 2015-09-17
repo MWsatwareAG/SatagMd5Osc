@@ -7,6 +7,10 @@ php:
   - 5.6
   - hhvm
 
+cache:
+   directories:
+     - $HOME/.composer/cache
+
 matrix:
   allow_failures:
     - php: hhvm
@@ -29,7 +33,7 @@ install:
   - cd ./../..
   - cp -r ./Core ./shopware/engine/Shopware/Plugins/Community
   # add coveralls support
-  - php ./composer.phar require --dev "satooshi/php-coveralls:dev-master"
+  - composer require --dev "satooshi/php-coveralls:dev-master"
 
 before_script:
   - cd ./engine/Shopware/Plugins/Community/Core/SatagMd5Osc

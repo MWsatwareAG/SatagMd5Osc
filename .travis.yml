@@ -9,11 +9,6 @@ matrix:
   allow_failures:
     - php: hhvm
 
-mysql:
-  database: shopware
-  username: root
-  password: root
-  encoding: utf8
 
 before_install:
   - sudo apt-get update > /dev/null
@@ -37,4 +32,7 @@ install:
 
   # sudo cp /vagrant/user.ini /etc/php5/apache2/conf.d/user.ini
 
-script: cd ./engine/Shopware/Plugins/Community/Core/SatagMd5Osc/; phpunit
+before_script:
+  - cd ./engine/Shopware/Plugins/Community/Core/SatagMd5Osc
+
+script: phpunit

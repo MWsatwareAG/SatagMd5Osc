@@ -42,6 +42,8 @@ before_script:
 script: phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
-  - cd $HOME
+  - echo $TRAVIS_BUILD_DIR
+  - ls $TRAVIS_BUILD_DIR
+  - cd $TRAVIS_BUILD_DIR
   - php ./shopware/vendor/bin/coveralls
 

@@ -29,7 +29,7 @@ class Shopware_Plugins_Core_SatagMd5Osc_Bootstrap extends Shopware_Components_Pl
 
     public function install()
     {
-        if (!$this->assertVersionGreaterThen('4.3.0')) {
+        if (!$this->assertMinimumVersion('4.3.0')) {
             throw new \RuntimeException('At least Shopware 4.3.0 is required');
         }
 

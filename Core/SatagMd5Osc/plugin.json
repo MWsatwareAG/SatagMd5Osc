@@ -8,13 +8,15 @@
     "link": "https://www.satware.com",
     "author": "satware AG, Michael Wegener",
 
-    "currentVersion": "1.0.0",
+    "currentVersion": "1.0.1",
 
     "changelog": {
         "de": {
+            "1.0.1": "Update für Shopware 5.1",
             "1.0.0": "Erstveröffentlichung"
         },
         "en": {
+            "1.0.1": "Update for Shopware 5.1",
             "1.0.0": "Initial release"
         }
     },
